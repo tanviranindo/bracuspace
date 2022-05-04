@@ -1,9 +1,15 @@
 ![DEMO View](files/logo/white.png?raw=true "DEMO View")
 
+[![Live](https://img.shields.io/badge/Live-Demo-red)](http://65.1.24.248/)
+[![README](https://img.shields.io/badge/Help-Doc-lightgrey)](README.md)
+[![GitHub Release](https://img.shields.io/github/v/release/tanviranindo/bracuspace)](https://github.com/tanviranindo/bracuspace/releases)
+[![GitHub License](https://img.shields.io/github/license/tanviranindo/bracuspace.svg)](https://github.com/tanviranindo/bracuspace/blob/master/LICENSE.md)
+[![Last Commit](https://img.shields.io/github/last-commit/tanviranindo/bracuspace/master)](https://github.com/tanviranindo/bracuspace/commits/master)
+
 ## Overview
 
-BRACU Space is an online cloud storage system where user can upload, download, transfer, delete and share files. This project is
-built for to serve two goals. One is to implement the project in `MVC` design pattern and another one is to implement
+BRACU Space is an online cloud storage system where user can upload, download, transfer, delete and share files. This
+project is built for to serve two goals. One is to implement the project in `MVC` design pattern and another one is to implement
 `OOP` concepts. However, the project was chosen to get hands on cloud services.
 
 ## Live
@@ -26,7 +32,7 @@ built for to serve two goals. One is to implement the project in `MVC` design pa
 ## Features
 
 - Users can log in, register and view accounts
-- Users can upload, download, view and delete files
+- Users can upload, download, transfer view and delete files
 - Admin can create, search, edit and delete users
 - Admin can create and update roles
 
@@ -96,7 +102,9 @@ password - user1
 
 ## Note
 
-For testing the demo, authentication keys are ~~provided. For deploying the application into production, configure the environments with secret key and switch the environment profile (demo -> prod) and create a new `application-prod.properties` similar to `application-demo.properties`.
+For testing the demo, authentication keys are ~~provided. For deploying the application into production, configure the
+environments with secret key and switch the environment profile (demo -> prod) and create a
+new `application-prod.properties` similar to `application-demo.properties`.
 
 ### Change Datasource
 
@@ -186,7 +194,8 @@ spring.mail.port=${SMTP_PORT}
 
 ### Change Multipart
 
-By default properties have configured with 1024MB. For reducing or extending the file upload limit, customization can be done here.
+By default, properties have been configured with 1024MB. For reducing or extending the file upload limit, customization can be
+done here.
 
 ```properties
 spring.servlet.multipart.file-size-threshold=${SIZE}
@@ -219,7 +228,7 @@ it can handle upto 1MB only as for free tier.
 
 ## Bug Fixed
 
-- [x] Sorting in admin view for the users does not work
+- [x] Sorting in admin view for the users
 
 ## Demo
 
