@@ -9,7 +9,7 @@ built for to serve two goals. One is to implement the project in `MVC` design pa
 ## Live
 
 - [Elastic Beanstalk Deploy](http://bracuspace-env-1.eba-8ppnvg8d.ap-south-1.elasticbeanstalk.com/) (Latest)
-- ~~[Heroku Deploy](https://bracuspace.herokuapp.com/)~~ (Deployment Failed)
+- [Heroku Deploy](https://bracuspace.herokuapp.com/) (Backup)
 
 ## Contents
 
