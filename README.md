@@ -19,7 +19,7 @@ built for to serve two goals. One is to implement the project in `MVC` design pa
 - [Usage](#Usage)
 - [Note](#Note)
 - [Todo](#Todo)
-- [Bugs](#Bugs)
+- [Bugs](#bug-fixed)
 - [Demo](#Demo)
 - [Attachments](#Attachments)
 
