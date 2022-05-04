@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="EN" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head">
+    <link th:rel="stylesheet" rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <title></title>
+</head>
+<nav th:replace="fragments/header :: nav"></nav>
+<body>
+<nav th:replace="fragments/header :: nav"></nav>
+
+<div id="admin-section">
+    <div class="admin-inner">
+        <div class="container" style="margin-top: 10%;">
+            <div class="jumbotron form-control testStyle" style="width: 700px; height: 400px;">
+                <h1>Transfer</h1>
+                <br>
+                <form>
+<!--                <form action="/transfer" method="post">-->
+                    <div class="form-group" style="text-align: left">
+                        <br>
+                        <label value="source">
+                            <select id="source" class="custom-select" name="source">
+                                <option value="0" selected disabled>Select source</option>
+                                <option value="1">Digital Ocean Space</option>
+                                <option value="2">AWS S3</option>
+                            </select>
+                            &nbsp;&nbsp;
+                            <label value="destination">
+                                <select id="destination" class="custom-select" name="destination">
+                                    <option value="0" selected disabled>Select destination</option>
+                                    <option value="3">Digital Ocean Space</option>
+                                    <option value="4">AWS S3</option>
+                                </select>
+                            </label>
+                        </label>
+                        <br>
+                        <label for="bucket">Bucket URL</label>
+                        <input type="text" class="form-control" id="bucket"
+                               placeholder="Enter Bucket URL (e.g. https://sgp1.digitaloceanspaces.com/bucket_name)"
+                               required>
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-dark" onclick="alert('Feature is not ready yet')">Transfer</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+
+<div th:replace="fragments/jsScripts :: scripts"></div>
+</body>
+</html>

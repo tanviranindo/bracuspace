@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head">
+    <title></title>
+</head>
+<body>
+<nav th:replace="fragments/header :: nav"></nav>
+
+<div id="admin-section">
+    <div class="admin-inner">
+        <div class="container">
+            <div class="d-flex flex-row">
+                <div id="admin-content">
+                    <form class="admin-form" th:action="@{/admin/users/{id}(id=${userUpdateDTO.id})}"
+                          th:object="${userUpdateDTO}" th:method="post" method="post">
+                        <ul class="global-errors" th:if="${#fields.hasErrors('global')}">
+                            <li class="text-danger" th:each="err : ${#fields.errors('global')}" th:text="${err}">
+                                Input is incorrect
+                            </li>
+                        </ul>
+                        <div class="form-group">
+                            <label for="editedUserName">Name</label>
+                            <input id="editedUserName" type="text" class="form-control" th:field="*{name}"/>
+                            <p class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+                        </div>
+                        <div class="form-group">
+                            <label for="editedUserSurname">Surname</label>
+                            <input id="editedUserSurname" type="text" class="form-control" th:field="*{surname}"/>
+                            <p class="text-danger" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></p>
+                        </div>
+                        <div class="form-group">
+                            <label for="editedUserUsername">Username</label>
+                            <input id="editedUserUsername" type="text" class="form-control" th:field="*{username}"/>
+                            <p class="text-danger" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
+                        </div>
+                        <div class="form-group">
+                            <label for="editedUserEmail">Email</label>
+                            <input id="editedUserEmail" type="text" class="form-control" th:field="*{email}"/>
+                            <span class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="editedUserRoles">Roles</label>
+                            <div>
+                                <p th:each="role,rowStat : ${allRoles}">
+                                    <input id="editedUserRoles" type="checkbox"
+                                           th:field="*{roles[__${rowStat.index}__].id}" th:value="${role.id}"/>
+                                    <label th:text="${role.name}">Role</label>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="editUserEnabled">Status</label>
+                            <div>
+                                <input id="editUserEnabled" type="checkbox" th:field="*{enabled}"
+                                       th:value="*{enabled}"/>
+                                Verified
+                            </div>
+                        </div>
+                        <a class="btn btn-danger" th:href="@{/admin/users}">Cancel</a>
+                        <button type="submit" class="btn btn-dark">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="fragments/jsScripts :: scripts"></div>
+</body>
+</html>

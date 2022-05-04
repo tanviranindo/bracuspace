@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head">
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/bootstrap.min.css}"/>
+    <title></title>
+</head>
+
+<body>
+<div class="container">
+    <div class="row">
+        <div class="card col-6 mx-auto" style="width:40rem; padding: 100px; margin-top: 100px;">
+            <img style="cursor: pointer;" th:onclick="|window.location.href='/index'|" th:src="@{/images/final.png}"
+                 alt="BRACU Space" src=""/>
+            <div class="card-body">
+                <h1 class="display-4">Login</h1>
+                <p th:if="${loginError}" class="alert alert-danger" role="alert">Wrong user or password</p>
+                <form th:action="@{/perform-login}" method="post">
+                    <div class="form-group">
+                        <label th:for="email">Email</label>
+                            <input type="email" class="form-control" th:id="email" name="email" th:name="email"
+                                   aria-describedby="emailHelp" placeholder="Enter email" required/>
+                    </div>
+                    <div class="form-group">
+                        <label th:for="password">Password</label>
+                            <input type="password" class="form-control" name="password" th:name="password" th:id="password"
+                                   placeholder="Password" required/>
+                    </div>
+                    <button type="button" class="btn btn-outline-dark" th:href="@{/register}"
+                            th:onclick="|window.location.href='/register'|">Create Account
+                    </button>
+                    <button type="submit" class="btn btn-dark" style="float: right;">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

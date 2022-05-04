@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head">
+    <title></title>
+</head>
+<body>
+<nav th:replace="fragments/header :: nav"></nav>
+
+<div id="admin-section">
+    <div class="admin-inner">
+        <div class="container">
+            <div class="d-flex flex-row">
+                <div id="admin-content">
+                    <form class="admin-form" th:action="@{/admin/users/newUser}" th:object="${newUser}" th:method="post"
+                          method="post">
+                        <ul class="global-errors" th:if="${#fields.hasErrors('global')}">
+                            <li class="text-danger" th:each="err : ${#fields.errors('global')}" th:text="${err}">Input
+                                is incorrect
+                            </li>
+                        </ul>
+                        <div class="form-group">
+                            <label for="newUserName">First Name</label>
+                            <input type="text" class="form-control" id="newUserName" placeholder="Enter First Name"
+                                   th:field="*{name}" required/>
+                            <p class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+                        </div>
+                        <div class="form-group">
+                            <label for="newUserSurname">Last Name</label>
+                            <input type="text" class="form-control" id="newUserSurname" placeholder="Enter Last Name"
+                                   th:field="*{surname}" required/>
+                            <p class="text-danger" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></p>
+                        </div>
+                        <div class="form-group">
+                            <label for="newUserUsername">Handle</label>
+                            <input type="text" class="form-control" id="newUserUsername" placeholder="Enter username"
+                                   th:field="*{username}" required/>
+                            <p class="text-danger" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
+                        </div>
+                        <div class="form-group">
+                            <label for="newUserEmail">Email</label>
+                            <input th:type="email" type="email" class="form-control" id="newUserEmail"
+                                   placeholder="Enter email" th:field="*{email}" required/>
+                            <span class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+                        </div>
+                        <div class="form-group">
+                            <label th:for="password" for="newUserPassword">Password</label>
+                            <input type="password" class="form-control" id="newUserPassword" placeholder="Password"
+                                   th:field="*{password}" required/>
+                            <p class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
+                        </div>
+                        <div class="form-group">
+                            <label th:for="matchingPassword" for="newUserMatchingPassword">Confirm Password</label>
+                            <input type="password" class="form-control" id="newUserMatchingPassword"
+                                   placeholder="Password" th:field="*{matchingPassword}" required/>
+                            <p class="text-danger" th:if="${#fields.hasErrors('matchingPassword')}"
+                               th:errors="*{matchingPassword}"></p>
+                        </div>
+                        <a class="btn btn-dark" th:href="@{/admin/users}">Cancel</a>
+                        <button type="submit" class="btn yellow-btn">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="fragments/jsScripts :: scripts"></div>
+</body>
+</html>

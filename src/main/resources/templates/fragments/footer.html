@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<body>
+<footer th:fragment="footer">
+    <hr/>
+    <div style="margin-left: 12%;">
+        <table id="footerTable">
+            <thead>
+            <tr>
+                <td><b>Developer</b></td>
+                <td><b>Feature</b></td>
+                <td><b>Stack</b></td>
+            </tr>
+            </thead>
+
+            <tbody>
+            <td>
+                <div>Tanvir Rahman</div>
+                <div>Student ID - 19101268</div>
+                <div class="flex-center">
+                    Connect -
+                    <a style="text-decoration: none" class="fa fa-github icon-3d underChange"
+                       th:href="@{https://github.com/tanviranindo/}"
+                       th:target="_blank"></a>
+
+                    <a style="text-decoration: none" class="fa fa-linkedin icon-3d underChange"
+                       th:href="@{https://www.linkedin.com/in/tanviranindo/}"
+                       th:target="_blank"></a>
+
+                    <a style="text-decoration: none" class="fa fa-google icon-3d underChange"
+                       th:href="'mailto:' +'tanviranindo@gmail.com'"
+                       th:target="_blank"></a>
+                </div>
+            </td>
+            <td>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> Login, Registration and Profile</li>
+                    <li><i class="fa-solid fa-check"></i> Upload, Download and Delete File</li>
+                    <li><i class="fa-solid fa-check"></i> Admin Panel and Email Service</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li><i class="fa-solid fa-arrow-right"></i> Spring Boot, Spring Security and MySQL</li>
+                    <li><i class="fa-solid fa-arrow-right"></i> HTML, CSS, Thymeleaf and AJAX</li>
+                    <li><i class="fa-solid fa-arrow-right"></i> DigitalOcean Space, AWS RDS and EC2</li>
+                </ul>
+            </td>
+            </tbody>
+        </table>
+    </div>
+    <hr/>
+</footer>
+</body>
+</html>

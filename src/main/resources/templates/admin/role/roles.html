@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head">
+    <title></title>
+</head>
+<body>
+<nav th:replace="fragments/header :: nav"></nav>
+
+<div style="margin-top: 5%;">
+    <div class="container">
+        <table class="table table-hover" style="text-align: center;">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Role</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="role : ${roles}">
+                <td th:text="${role.id}">>1</td>
+                <td th:text="${role.name}">Role Name</td>
+                <td>
+                    <a style="text-decoration: none; color: blue;" th:href="@{/admin/roles/{id}(id=${role.id})}"
+                       class="edit-btn" data-toggle="tooltip" data-placement="right" title="Edit role">
+                        <button class="btn btn-success" type="submit">Edit</button>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div th:if="${roleHasBeenSaved}" class="alert alert-success alert-dismissible fade show" role="alert"
+             style="width: 15%;">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            Role saved!
+        </div>
+        <div th:if="${roleHasBeenUpdated}" class="alert alert-success alert-dismissible fade show" role="alert"
+             style="width: 15%;">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            Role updated!
+        </div>
+    </div>
+</div>
+
+<div th:replace="fragments/jsScripts :: scripts"></div>
+</body>
+</html>

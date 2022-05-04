@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head">
+    <title></title>
+</head>
+<script src="https://use.fontawesome.com/c0c323679c.js"></script>
+
+<body>
+<nav th:replace="fragments/header :: nav"></nav>
+
+<div class="center-content" id="main">
+    <div class="error-page">
+        <div class="error-page-404">
+            <h1>Error 404</h1>
+        </div>
+    </div>
+</div>
+
+
+<div th:replace="fragments/jsScripts :: scripts"></div>
+<div style=" position: fixed; bottom: 125px; width: 100%;">
+    <footer th:replace="fragments/footer :: footer"></footer>
+</div>
+</body>
+</html>

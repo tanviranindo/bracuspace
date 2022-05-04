@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="fragments/head :: head">
+    <title></title>
+</head>
+<body>
+<nav th:fragment="nav" id="navbar-home" class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" th:href="@{/index}">BRACU Space</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto" id="users-nav-item" sec:authorize="isAuthenticated()">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/index}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item d-flex" sec:authorize="hasRole('ROLE_USER')">
+                <!--                <i class="align-self-center fas fa-user-cog" style="color: white;"></i>-->
+                <a class="nav-link" th:href="@{/user/space}">Space</a>
+            </li>
+            <li class="nav-item d-flex" sec:authorize="hasRole('ROLE_USER')">
+                <!--                <i class="align-self-center fas fa-user-cog" style="color: white;"></i>-->
+                <a class="nav-link" th:href="@{/user/remote}">Remote</a>
+            </li>
+            <li class="nav-item d-flex" sec:authorize="hasRole('ROLE_USER')">
+                <!--                <i class="align-self-center fas fa-user-cog" style="color: white;"></i>-->
+                <a class="nav-link" th:href="@{/user/transfer}">Transfer</a>
+            </li>
+            <li class="nav-item d-flex" sec:authorize="hasRole('ROLE_ADMIN')">
+                <!--                <i class="align-self-center fas fa-user-cog" style="color: white;"></i>-->
+                <a class="nav-link" th:href="@{/admin/users}">User</a>
+            </li>
+            <li class="nav-item d-flex" sec:authorize="hasRole('ROLE_ADMIN')">
+                <!--                <i class="align-self-center fas fa-user-cog" style="color: white;"></i>-->
+                <a class="nav-link" th:href="@{/admin/roles}">Role</a>
+            </li>
+        </ul>
+
+        <ul class="navbar-nav ml-auto" sec:authorize="isAuthenticated()">
+            <li class="nav-item d-flex" sec:authorize="hasRole('ROLE_ADMIN')">
+                <!--                <i class="align-self-center fas fa-user-cog" style="color: white;"></i>-->
+                <a class="nav-link" th:href="@{/admin/users/newUser}">Create
+                    User</a>
+            </li>
+            <li class="nav-item d-flex" sec:authorize="hasRole('ROLE_ADMIN')">
+                <!--                <i class="align-self-center fas fa-user-cog" style="color: white;"></i>-->
+                <a class="nav-link" th:href="@{/admin/roles/newRole}">Create
+                    Role</a>
+            </li>
+
+            <li class="nav-item d-flex" sec:authorize="hasRole('ROLE_USER')">
+                <i class="align-self-center fa-solid fa-gear" style="color: #fcc149;"></i>
+                <a class="nav-link" th:href="@{/user/account}">
+                    <span style="color: #fcc149" sec:authentication="name"></span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript: document.logoutForm.submit()" role="menuitem">
+                    Logout
+                </a>
+                <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
+                    <input hidden type="submit" value="Sign Out"/>
+                </form>
+            </li>
+        </ul>
+
+        <ul class="navbar-nav ml-auto" sec:authorize="!isAuthenticated()">
+            <li class="nav-item d-flex flex-row">
+                <i class="align-self-center fa-solid fa-user" aria-hidden="true" style="color: white;"></i>
+                <a class="nav-link mr-3" th:href="@{/login}">Login</a>
+            </li>
+            <li class="nav-item d-flex flex-row">
+                <i class="align-self-center fa-solid fa-right-to-bracket" aria-hidden="true" style="color: white;"></i>
+                <a class="nav-link" th:href="@{/register}">Sign Up</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+</body>
+</html>

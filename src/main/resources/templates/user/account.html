@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="EN" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head">
+    <title>Account | BRACU Space</title>
+</head>
+<body>
+<nav th:replace="fragments/header :: nav"></nav>
+
+<div id="admin-section">
+    <div class="admin-inner">
+        <div class="container" style="margin-top: 10%;">
+            <div class="jumbotron form-control testStyle" style="width: 600px; height: 600px;">
+                <img class="imageAccount" th:src="@{/images/male.png}" alt="Avatar" src=""/>
+                <hr class="my-4"/>
+                <p>First Name: <span th:text="${firstName}"></span></p>
+                <p>Last Name: <span th:text="${lastName}"></span></p>
+                <p>Handle: <span th:text="${handle}"></span></p>
+                <p>Email: <span th:text="${email}"></span></p>
+                <p>Roles: <span th:text="${roles}"></span>
+                <p>Account: <span th:text="${accountStatus}"></span></p>
+                <button type="submit" class="btn btn-secondary" onclick="alert('Feature is not added yet')">Edit Account</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="fragments/jsScripts :: scripts"></div>
+</body>
+</html>

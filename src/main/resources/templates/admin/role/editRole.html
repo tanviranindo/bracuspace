@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head">
+    <title></title>
+</head>
+<body>
+<nav th:replace="fragments/header :: nav"></nav>
+
+<div id="admin-section">
+    <div class="admin-inner">
+        <div class="container">
+            <div class="d-flex flex-row">
+                <div id="admin-content">
+                    <form class="admin-form" th:action="@{/admin/roles/{id}(id=${role.id})}" th:object="${role}"
+                          th:method="post" method="post">
+                        <div class="form-group">
+                            <label for="editRoleName">Name</label>
+                            <input id="editRoleName" type="text" class="form-control" th:field="*{name}"/>
+                            <p class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+                        </div>
+                        <a class="btn btn-dark" th:href="@{/admin/roles}">Cancel</a>
+                        <button type="submit" class="btn yellow-btn">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="fragments/jsScripts :: scripts"></div>
+</body>
+</html>

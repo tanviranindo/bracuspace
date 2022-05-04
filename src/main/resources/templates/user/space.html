@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="EN" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head">
+    <link th:rel="stylesheet" rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <title>Space | BRACU Space</title>
+</head>
+<nav th:replace="fragments/header :: nav"></nav>
+<body>
+<div style="margin-top: 5%;">
+    <div>
+        <div class="container">
+            <div class="page-header"></div>
+            <form method="POST" enctype="multipart/form-data" th:action="@{/user/upload/file}">
+                <div class="form-group">
+                    <label class="form-label" for="uploadFile">Browse file</label>
+                    <div class="input-group">
+                        <input type="file" id="uploadFile" class="form-control" name="uploadFile" required/>
+                    </div>
+                </div>
+
+                <div style="float: right;">
+                    <button type="button" class="btn btn-dark"
+                            onclick="window.location.href=window.location.origin + '/user/space'" title="Reload">
+                        <i class="fa-solid fa-arrow-rotate-right" style="color: white"></i>
+                    </button>
+                    <button type="reset" th:href="@{/user/upload/}" class="btn btn-warning" title="Reset"><i
+                            class="fa-solid fa-broom" style="color: black"></i>
+                    </button>
+                    <button type="submit" class="btn btn-success" title="Upload">Upload
+                        <i class="fa-solid fa-upload" style="color: white"></i>
+                    </button>
+                </div>
+            </form>
+
+            <div th:if="${fileSucceed}" style="text-align: center;">
+                <span> File has been uploaded.</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="margin-top: 5%;">
+    <div class="container">
+        <table class="table table-hover" style="text-align: center;">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Size</th>
+                <th>Upload Date</th>
+                <th style="padding-left: 5%;">Action</th>
+            </tr>
+            </thead>
+            <tbody th:each="file: ${fileList}">
+            <tr>
+                <td th:text="${file.fileId}"></td>
+                <td th:text="${file.fileName}"></td>
+                <td th:text="${file.mimeType}"></td>
+                <td th:text="${file.fileSize}"></td>
+                <td th:text="${file.lastModifiedDate}"></td>
+                <td style="display: inline-block; float: right;">
+                    <form class="sideBySideForm" th:action="@{'/user/download/file/' + ${file.getFileName()}}"
+                          th:method="get">
+                        <input type="hidden" name="_method" value="filename"/>
+                        <button class="btn yellow-btn" type="submit" title="Download">
+                            <i class="fa-solid fa-file-arrow-down"></i>
+                        </button>
+                    </form>
+                    <form method="get" class="sideBySideForm" id="fileName" style="vertical-align: middle;"
+                          th:action="@{'/user/delete/file/' + ${file.getFileName()}}"
+                          onsubmit="return confirm('Are you sure you want to delete this file?')">
+                        <input type="hidden" name="_method" value="filename"/>
+                        <button class="btn btn-danger" type="submit" id="delete">
+                            <i class="fa-solid fa-trash-alt" style="color: white"></i>
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div th:replace="fragments/jsScripts :: scripts"></div>
+</body>
+</html>

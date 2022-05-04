@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head">
+    <title></title>
+</head>
+
+<body>
+<div class="backgroundChange">
+    <img id="headerImg" th:onclick="|window.location.href='/index'|" th:src="@{/images/final.png}" alt="BRACU Space"
+         src=""/>
+    <h1 class="display-4">Sign Up</h1>
+    <form th:action="@{/process}" th:object="${UserDTO}" th:method="post" method="post">
+        <ul class="global-errors" th:if="${#fields.hasErrors('global')}">
+            <li class="text-danger" th:each="err : ${#fields.errors('global')}" th:text="${err}">Input is incorrect</li>
+        </ul>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="Name">First Name</label>
+                <label for="name"></label>
+                <input type="text" name="name" class="form-control" id="name" placeholder="Enter First Name"
+                       th:field="*{name}" required/>
+                <p class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="Surname">Last Name</label>
+                <label for="surname"></label>
+                <input type="text" name="surname" class="form-control" id="surname" placeholder="Enter Last Name"
+                       th:field="*{surname}" required/>
+                <p class="text-danger" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></p>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="Username">Handle</label>
+                <label for="username"></label>
+                <input type="text" name="username" class="form-control" id="username" placeholder="Enter username"
+                       th:field="*{username}" required/>
+                <p class="text-danger" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="Email">Email</label>
+                <label for="email"></label>
+                <input th:type="email" name="email" class="form-control" id="email" placeholder="Enter email"
+                       th:field="*{email}" required/>
+                <span class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="password">Password</label>
+                <input type="password" name="password" class="form-control" id="password" placeholder="Enter Password"
+                       th:field="*{password}" required/>
+                <p class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" name="password" class="form-control" id="confirmPassword"
+                       placeholder="Confirm Password" th:field="*{matchingPassword}" required/>
+
+                <p class="text-danger" th:if="${#fields.hasErrors('matchingPassword')}"
+                   th:errors="*{matchingPassword}"></p>
+            </div>
+        </div>
+        <div class="buttonCenter">
+            <button type="reset" class="btn btn-warning">Reset</button>
+            &nbsp;
+            <button type="submit" class="btn btn-dark">Sign Up</button>
+        </div>
+        <br/>
+        <p style="text-align: center" class="center">Already have an account? <a style="text-decoration: none" th:href="@{/login}">Click here to login</a></p>
+    </form>
+</div>
+<div th:replace="fragments/jsScripts :: scripts"></div>
+</body>
+</html>
