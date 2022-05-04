@@ -3,12 +3,22 @@
 ## Overview
 
 BRACU Space is an online cloud storage system where user can upload, download, transfer, delete and share files. This
-project is built for to serve two goals. One is to implement the project in `MVC` design pattern and another one is to implement
+project is built for to serve two goals. One is to implement the project in `MVC` design pattern and another one is to
+implement
 `OOP` concepts. However, the project was chosen to get hands on cloud services.
+
+## Badges
+
+[![Live](https://img.shields.io/badge/Live-Demo-red)](http://65.1.24.248/){:target="_blank"}
+[![README](https://img.shields.io/badge/Help-Doc-lightgrey)](README.md)
+[![GitHub Release](https://img.shields.io/github/v/release/tanviranindo/bracuspace)](https://github.com/tanviranindo/bracuspace/releases)
+[![GitHub License](https://img.shields.io/github/license/tanviranindo/bracuspace.svg)](https://github.com/tanviranindo/bracuspace/blob/master/LICENSE.md)
+[![Last Commit](https://img.shields.io/github/last-commit/tanviranindo/bracuspace/master)](https://github.com/tanviranindo/bracuspace/commits/master)
 
 ## Live
 
-- [Elastic Beanstalk Deploy](http://bracuspace-env-1.eba-8ppnvg8d.ap-south-1.elasticbeanstalk.com/){:target="_blank" rel="noopener"} (Latest)
+- [Elastic Beanstalk Deploy](http://bracuspace-env-1.eba-8ppnvg8d.ap-south-1.elasticbeanstalk.com/){:target="_blank"
+  rel="noopener"} (Latest)
 - [Heroku Deploy](https://bracuspace.herokuapp.com/) (Backup)
 
 ## Contents
@@ -22,7 +32,6 @@ project is built for to serve two goals. One is to implement the project in `MVC
 - [Bugs](#bug-fixed)
 - [Demo](#Demo)
 - [Attachments](#Attachments)
-- [Badges](#Badges)
 
 ## Features
 
@@ -189,7 +198,8 @@ spring.mail.port=${SMTP_PORT}
 
 ### Change Multipart
 
-By default, properties have been configured with 1024MB. For reducing or extending the file upload limit, customization can be
+By default, properties have been configured with 1024MB. For reducing or extending the file upload limit, customization
+can be
 done here.
 
 ```properties
@@ -234,12 +244,3 @@ it can handle upto 1MB only as for free tier.
 - #### [SQL](files/sql)
 - #### [Diagrams](files/diagrams)
 - #### [Demo](files/demo)
-
-## Badges
-
-[![Live](https://img.shields.io/badge/Live-Demo-red)](http://65.1.24.248/)
-[![README](https://img.shields.io/badge/Help-Doc-lightgrey)](README.md)
-[![GitHub Release](https://img.shields.io/github/v/release/tanviranindo/bracuspace)](https://github.com/tanviranindo/bracuspace/releases)
-[![GitHub License](https://img.shields.io/github/license/tanviranindo/bracuspace.svg)](https://github.com/tanviranindo/bracuspace/blob/master/LICENSE.md)
-[![Last Commit](https://img.shields.io/github/last-commit/tanviranindo/bracuspace/master)](https://github.com/tanviranindo/bracuspace/commits/master)
-
