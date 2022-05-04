@@ -1,4 +1,4 @@
-package com.project.bracuspace.configuration;
+package com.project.bracuspace.config;
 
 import com.project.bracuspace.model.Role;
 import com.project.bracuspace.model.User;

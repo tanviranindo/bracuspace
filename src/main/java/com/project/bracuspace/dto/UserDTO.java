@@ -1,7 +1,7 @@
 package com.project.bracuspace.dto;
 
-import com.project.bracuspace.annotation.PasswordValidate;
-import com.project.bracuspace.annotation.ValidEmail;
+import com.project.bracuspace.validator.PasswordValidate;
+import com.project.bracuspace.validator.ValidEmail;
 import lombok.Getter;
 import lombok.Setter;
 

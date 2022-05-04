@@ -1,4 +1,4 @@
-package com.project.bracuspace.annotation;
+package com.project.bracuspace.validator;
 
 import com.project.bracuspace.dto.UserDTO;
 

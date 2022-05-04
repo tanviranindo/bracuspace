@@ -1,6 +1,6 @@
 package com.project.bracuspace.dto;
 
-import com.project.bracuspace.annotation.ValidRole;
+import com.project.bracuspace.validator.ValidRole;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;

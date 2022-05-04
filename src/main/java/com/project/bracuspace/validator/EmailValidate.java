@@ -1,4 +1,4 @@
-package com.project.bracuspace.annotation;
+package com.project.bracuspace.validator;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

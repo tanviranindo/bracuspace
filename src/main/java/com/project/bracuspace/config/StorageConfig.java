@@ -1,4 +1,4 @@
-package com.project.bracuspace.configuration;
+package com.project.bracuspace.config;
 
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.AWSStaticCredentialsProvider;

@@ -1,22 +1,21 @@
-package com.project.bracuspace.annotation;
+package com.project.bracuspace.validator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
 import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
-import static java.lang.annotation.ElementType.ANNOTATION_TYPE;
-import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
-@Target({TYPE, ANNOTATION_TYPE})
+@Target(ElementType.FIELD)
 @Retention(RUNTIME)
-@Constraint(validatedBy = PasswordMValidate.class)
+@Constraint(validatedBy = RoleValidate.class)
 @Documented
-public @interface PasswordValidate {
+public @interface ValidRole {
 
-    String message() default "Passwords do not match";
+    String message() default "Invalid role name. Name of the role should start with prefix \"ROLE_\"";
 
     Class<?>[] groups() default {};
 

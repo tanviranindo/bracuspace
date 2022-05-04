@@ -1,4 +1,4 @@
-package com.project.bracuspace.configuration;
+package com.project.bracuspace.config;
 
 import com.project.bracuspace.service.user.UserDetailsServiceImpl;
 import org.modelmapper.ModelMapper;

@@ -1,7 +1,7 @@
 package com.project.bracuspace.model;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.project.bracuspace.annotation.ValidRole;
+import com.project.bracuspace.validator.ValidRole;
 import lombok.Getter;
 import lombok.Setter;
 
