@@ -3,23 +3,23 @@
 ## Overview
 
 BRACU Space is an online cloud storage system where user can upload, download, transfer, delete and share files. This
-project is built for to serve two goals. One is to implement the project in `MVC` design pattern and another one is to
-implement
-`OOP` concepts. However, the project was chosen to get hands on cloud services.
+project is built for to serve three goals. First one is to implement the project in `MVC` design pattern, second one is
+to implement `OOP` concepts. And the last one is to enhance the frontend look and performance. However, the project was
+chosen to get hands on cloud services.
+
+## Live
+
+- Elastic Beanstalk - [Endpoint](http://bracuspace-env-1.eba-8ppnvg8d.ap-south-1.elasticbeanstalk.com/)
+  | [Public IP](http://65.1.24.248/) (Latest)
+- Heroku - [URL](https://bracuspace.herokuapp.com/) (Backup)
 
 ## Badges
 
-[![Live](https://img.shields.io/badge/Live-Demo-red)](http://65.1.24.248/){:target="_blank"}
+[![Live](https://img.shields.io/badge/Live-Demo-red)](http://65.1.24.248/)
 [![README](https://img.shields.io/badge/Help-Doc-lightgrey)](README.md)
 [![GitHub Release](https://img.shields.io/github/v/release/tanviranindo/bracuspace)](https://github.com/tanviranindo/bracuspace/releases)
 [![GitHub License](https://img.shields.io/github/license/tanviranindo/bracuspace.svg)](https://github.com/tanviranindo/bracuspace/blob/master/LICENSE.md)
 [![Last Commit](https://img.shields.io/github/last-commit/tanviranindo/bracuspace/master)](https://github.com/tanviranindo/bracuspace/commits/master)
-
-## Live
-
-- [Elastic Beanstalk Deploy](http://bracuspace-env-1.eba-8ppnvg8d.ap-south-1.elasticbeanstalk.com/){:target="_blank"
-  rel="noopener"} (Latest)
-- [Heroku Deploy](https://bracuspace.herokuapp.com/) (Backup)
 
 ## Contents
 
@@ -36,8 +36,8 @@ implement
 ## Features
 
 - Users can log in, register and view accounts
-- Users can upload, download, transfer view and delete files
-- Admin can create, search, edit and delete users
+- Users can upload, download, transfer, view and delete files
+- Admin can create, view, search, edit and delete users
 - Admin can create and update roles
 
 ## Stacks
@@ -62,8 +62,7 @@ implement
 ## Review
 
 - For developing the application models, views and controllers are packaged in a distributed order for following
-  the `MVC`
-  design pattern. And, repositories, services and dtos are also distributed.
+  the `MVC` design pattern. And, repositories, services and DTOs are also distributed.
 - For deployment a standard MySQL database was created in `RDS`. And then a bucket in `Space` was created for storing
   the files. But currently each user will be provided a folder to store files only. Only that particular user can access
   that folder. Then, using `EC2` instance machine was created and configured. Lastly, deployed and hosted the
@@ -106,9 +105,13 @@ password - user1
 
 ## Note
 
-For testing the demo, authentication keys are ~~provided. For deploying the application into production, configure the
-environments with secret key and switch the environment profile (demo -> prod) and create a
-new `application-prod.properties` similar to `application-demo.properties`.
+For testing the demo application, authentication keys are ~~provided~~. For deploying the application into production,
+create a new `application-prod.properties` similar to `application-demo.properties` and configure the environments with
+secret keys and switch the environment profile from `demo` to `prod`.
+
+```properties
+spring.profiles.active=prod
+```
 
 ### Change Datasource
 
@@ -199,8 +202,7 @@ spring.mail.port=${SMTP_PORT}
 ### Change Multipart
 
 By default, properties have been configured with 1024MB. For reducing or extending the file upload limit, customization
-can be
-done here.
+can be done here.
 
 ```properties
 spring.servlet.multipart.file-size-threshold=${SIZE}
@@ -222,6 +224,8 @@ it can handle upto 1MB only as for free tier.
 - [x] User can upload from remote URL directly
 - [x] Users can view profile
 - [x] Role permissions for admin
+- [x] File upload through remote URL directly
+- [ ] Cloud to cloud storage transfer for files or buckets
 - [ ] Users can add profile pictures
 - [ ] User profile edit feature needs to be added
 - [ ] Users can sort and search files

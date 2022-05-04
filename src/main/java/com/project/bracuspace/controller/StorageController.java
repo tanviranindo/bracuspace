@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.apache.commons.io.FilenameUtils;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -30,7 +31,7 @@ public class StorageController {
     }
 
     @PostMapping("/upload/remote")
-    public ModelAndView remoteUpload(@ModelAttribute(value = "url") String url, Model model) throws IOException {
+    public String remoteUpload(@ModelAttribute(value = "url") String url, Model model) throws IOException {
 //        System.out.println(url);
         URL link = new URL(url);
 //        System.out.println(FilenameUtils.getName(link.getPath()));
@@ -38,13 +39,13 @@ public class StorageController {
         urlConnection.connect();
         MultipartFile file = new MockMultipartFile(FilenameUtils.getName(link.getPath()), FilenameUtils.getName(link.getPath()), "remote/undefined", IOUtils.toByteArray(urlConnection.getInputStream()));
         model.addAttribute("fileSucceed", service.uploadFile(file));
-        return new ModelAndView("user/space");
+        return "redirect:/user/space";
     }
 
     @PostMapping("/upload/file")
-    public ModelAndView uploadFile(@RequestParam(value = "uploadFile") MultipartFile file, Model model) {
+    public String uploadFile(@RequestParam(value = "uploadFile") MultipartFile file, Model model) {
         model.addAttribute("fileSucceed", service.uploadFile(file));
-        return new ModelAndView("user/space");
+        return "redirect:/user/space";
     }
 
     @GetMapping(value = "/download/file/{filename}")
@@ -56,11 +57,9 @@ public class StorageController {
 
 
     @GetMapping(value = "/delete/file/{fileName}")
-    public ModelAndView deleteFile(@PathVariable(name = "fileName") String fileName) {
+    public String deleteFile(@PathVariable(name = "fileName") String fileName) {
         service.deleteFile(fileName);
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("/user/space");
-        return modelAndView;
+        return "redirect:/user/space";
     }
 
     private MediaType contentType(String filename) {
