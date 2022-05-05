@@ -2,10 +2,10 @@
 
 ## Overview
 
-BRACU Space is an online cloud storage system where user can upload, download, transfer, delete and share files. This
-project is built for to serve three goals. First one is to implement the project in `MVC` design pattern, second one is
-to implement `OOP` concepts. And the last one is to enhance the frontend look and performance. However, the project was
-chosen to get hands on cloud services.
+BRACU Space is a cloud storage system where users can upload, download, transfer, delete, and share files. The project
+has been developed to achieve three goals. One is to implement the MVC (Model, View, Controller) design pattern, the
+second one is to implement OOP (Object-Oriented Programming) concepts, and the last one is to enhance the frontend look
+and performance. However, the main goal of this project was chosen to get hands-on experience with cloud services.
 
 ## Live
 
@@ -35,10 +35,10 @@ chosen to get hands on cloud services.
 
 ## Features
 
-- Users can log in, register and view accounts
-- Users can upload, download, transfer, view and delete files
-- Admin can create, view, search, edit and delete users
-- Admin can create and update roles
+- Users can log in, register and view account details
+- Users can view, upload (local and remote), download, transfer, and delete files
+- Admin can view, search, create, update, block, and delete users
+- Admin can view, create, manage, and update roles
 
 ## Stacks
 
@@ -226,6 +226,7 @@ it can handle upto 1MB only as for free tier.
 - [x] Role permissions for admin
 - [x] File upload through remote URL directly
 - [ ] Cloud to cloud storage transfer for files or buckets
+- [ ] Progress bar for file upload
 - [ ] Users can add profile pictures
 - [ ] User profile edit feature needs to be added
 - [ ] Users can sort and search files
