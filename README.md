@@ -29,7 +29,8 @@ and performance. However, the main goal of this project was chosen to get hands-
 - [Usage](#Usage)
 - [Note](#Note)
 - [Todo](#Todo)
-- [Bugs](#bug-fixed)
+- [Bugs](#bugs)
+- [Improvements](#Improvements)
 - [Demo](#Demo)
 - [Attachments](#Attachments)
 
@@ -236,9 +237,19 @@ it can handle upto 1MB only as for free tier.
 - [ ] Users account verification by email authentication
 - [ ] Recover and change password
 
-## Bug Fixed
+## Bugs
 
 - [x] Sorting in admin view for the users
+
+## Improvements
+
+Following improvements can be added to the next version of the application -
+
+- [ ] Deploy Folder Structure
+- [ ] Multiple File Upload
+- [ ] Create User Role Against Different Parameters (e.g. Premium, Free etc.)
+- [ ] Offline Error Handle
+- [ ] Create Android Application
 
 ## Demo
 
